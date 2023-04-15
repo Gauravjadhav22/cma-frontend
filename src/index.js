@@ -3,11 +3,19 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-
+import { Route, BrowserRouter as Router } from 'react-router-dom';
+import { AuthProvider } from './context/AuthProvider';
+import { ChannelProvider } from './context/ChannelProvider';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <Router>
+      <AuthProvider>
+        <ChannelProvider>
+          <App />
+        </ChannelProvider>
+      </AuthProvider>
+    </Router>
   </React.StrictMode>
 );
 
